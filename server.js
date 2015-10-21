@@ -21,6 +21,14 @@ require('./db/connect.js');
  */
 // Parse application/json
 app.use(bodyParser.json());
+
+//access control allow
+
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
 /**
  * Map routes with routers
  */
